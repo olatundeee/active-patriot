@@ -122,7 +122,24 @@ const SidePanel = ({
                 link: 'https://steemeconomy.com/',
             },*/
         ],
-
+        links: [
+            {
+                label: tt('navigation.active_patriot_youtube'),
+                link: 'https://www.youtube.com/channel/UCwfIIN1nRLzA-uxqasvRWRQ',
+            },
+            {
+                label: tt('navigation.active_scooter_chase'),
+                link: 'https://www.youtube.com/watch?v=eirAX1I488U',
+            },
+            {
+                label: tt('navigation.dover_docks_arrest'),
+                link: 'https://www.youtube.com/watch?v=yLeG518OSuM',
+            },
+            /* {
+                label: tt('navigation.steem_engine'),
+                link: 'https://steemengine.com/',
+            },*/
+        ],
         organizational: [
             {
                 label: tt('navigation.api_docs'),
@@ -171,6 +188,16 @@ const SidePanel = ({
         <div className="SidePanel">
             <div className={(visible ? 'visible ' : '') + alignment}>
                 <CloseButton onClick={hideSidePanel} />
+                <hr/>
+                <div className="vertical menu">
+                    <h3 className="c-sidebar__h3">ACTIVE PATRIOT VIDEOS</h3>
+                    <ul className="vertical menu">
+                        {sidePanelLinks.links.map(makeLink)}
+                    </ul>
+
+                </div>
+                <hr/>
+                <h3 className="c-sidebar__h3">HIVE</h3>
                 <ul className={`vertical menu ${loggedIn}`}>
                     {sidePanelLinks.extras.map(makeLink)}
                 </ul>

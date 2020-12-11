@@ -256,6 +256,14 @@ class Header extends React.Component {
         // Since navigate isn't set, defaultNavigate will always be used.
         const nav = navigate || defaultNavigate;
 
+        const upload_to_3speak = 
+            <Link to="https://studio.3speak.co/dashboard" target="_blank">
+                <svg style={{width: 30 + 'px', marginTop: 10 + '%'}}
+ viewBox="0 0 20 20">
+					<path d="M17.919,4.633l-3.833,2.48V6.371c0-1-0.815-1.815-1.816-1.815H3.191c-1.001,0-1.816,0.814-1.816,1.815v7.261c0,1.001,0.815,1.815,1.816,1.815h9.079c1.001,0,1.816-0.814,1.816-1.815v-0.739l3.833,2.478c0.428,0.226,0.706-0.157,0.706-0.377V5.01C18.625,4.787,18.374,4.378,17.919,4.633 M13.178,13.632c0,0.501-0.406,0.907-0.908,0.907H3.191c-0.501,0-0.908-0.406-0.908-0.907V6.371c0-0.501,0.407-0.907,0.908-0.907h9.079c0.502,0,0.908,0.406,0.908,0.907V13.632zM17.717,14.158l-3.631-2.348V8.193l3.631-2.348V14.158z"></path>
+				</svg>
+            </Link>
+
         const submit_story = $STM_Config.read_only_mode ? null : (
             <Link to="/submit.html">
                 <IconButton />
@@ -344,29 +352,11 @@ class Header extends React.Component {
                                     </li>
                                     <li className={`nav__block-list-item`}>
                                         <Link
-                                            to={`${walletUrl}/proposals`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            Proposals
-                                        </Link>
-                                    </li>
-                                    <li className={`nav__block-list-item`}>
-                                        <Link
-                                            to={`${walletUrl}/~witnesses`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            Witnesses
-                                        </Link>
-                                    </li>
-                                    <li className={`nav__block-list-item`}>
-                                        <Link
                                             to="https://hive.io/eco/"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            Our dApps
+                                            Other dApps
                                         </Link>
                                     </li>
                                 </ul>
@@ -404,6 +394,7 @@ class Header extends React.Component {
 
                                 {/*SUBMIT STORY*/}
                                 {submit_story}
+                                {upload_to_3speak}
                                 {/*USER AVATAR */}
                                 {loggedIn && (
                                     <DropdownMenu

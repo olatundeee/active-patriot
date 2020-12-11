@@ -1,4 +1,4 @@
-$menu-width: 250px;
+$menu-width: 350px;
 
 .SidePanel {
   display: block;
@@ -76,6 +76,7 @@ $menu-width: 250px;
     &.visible.right {
       transform: translate3d(-$menu-width, 0, 0);
       visibility: visible;
+      padding: 3rem 2rem;
     }
   }
   .Icon.extlink {

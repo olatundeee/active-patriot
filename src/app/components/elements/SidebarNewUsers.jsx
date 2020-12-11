@@ -35,35 +35,27 @@ const SidebarNewUsers = ({ walletUrl }) => {
 
     const links = [
         {
-            label: tt('navigation.what_is_hive'),
-            link: 'https://hive.io',
+            label: tt('navigation.active_patriot_youtube'),
+            link: 'https://www.youtube.com/channel/UCwfIIN1nRLzA-uxqasvRWRQ',
         },
         {
-            label: tt('navigation.app_center'),
-            link: 'https://hivedapps.com/',
+            label: tt('navigation.active_scooter_chase'),
+            link: 'https://www.youtube.com/watch?v=eirAX1I488U',
         },
         {
-            label: tt('navigation.blockexplorer'),
-            link: 'https://hiveblocks.com/',
+            label: tt('navigation.dover_docks_arrest'),
+            link: 'https://www.youtube.com/watch?v=yLeG518OSuM',
         },
         /* {
             label: tt('navigation.steem_engine'),
             link: 'https://steemengine.com/',
         },*/
-        {
-            label: tt('navigation.vote_for_witnesses'),
-            link: `${walletUrl}/~witnesses`,
-        },
-        {
-            label: tt('navigation.hive_proposals'),
-            link: `${walletUrl}/proposals`,
-        },
     ];
 
     return (
         <div className="c-sidebar__module">
             <div className="c-sidebar__header">
-                <h3 className="c-sidebar__h3">Explore Hive</h3>
+                <h3 className="c-sidebar__h3">Explore Active Patriot</h3>
             </div>
             <div className="c-sidebar__content">
                 <ul className="c-sidebar__list">{links.map(makeLink)}</ul>

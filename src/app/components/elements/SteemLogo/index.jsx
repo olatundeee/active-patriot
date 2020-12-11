@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SteemLogo = ({ nightmodeEnabled }) => {
-    const logo = nightmodeEnabled
-        ? '/images/hive-blog-logo-nightmode.svg'
-        : '/images/hive-blog-logo.svg';
+    const logo = '/images/active-patriot.png';
 
     return (
         <span className="logo">
@@ -12,7 +10,7 @@ const SteemLogo = ({ nightmodeEnabled }) => {
                 <title>Home</title>
                 <g id="logo" />
             </svg> */}
-            <img alt="logo" width="150" height="40" src={logo} />
+            <img alt="logo" width="60" height="40" src={logo} style={{marginTop: '-20%'}} />
         </span>
     );
 };
