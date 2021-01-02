@@ -896,7 +896,8 @@
         "button_mute": "Mute Users",
         "button_follow_blacklists": "Follow Blacklists",
         "button_follow_muted_lists": "Follow Muted Lists",
-        "unknown_accounts": "Unable to find account(s): ",
+        "unknown_accounts":
+            "These accounts cannot be added because they can't be validated or are already on the list: ",
         "page_count": "Viewing Page %(current)s of %(total)s",
         "search_for_user": "Search List For Account:",
         "add_users_to_list": "Add Account(s) To List",
@@ -929,12 +930,13 @@
         "info5":
             "You can see the descriptions of the lists of other accounts by browsing directly to their personal blacklist or mute list page. These links can be found on their profile page below the follower information. ",
         "info6":
-            "To get started, we recommend that you follow the blacklists/mute lists of these accounts: ",
+            "To get started, we recommend that you follow the blacklists/mute lists of these accounts: hive.blog",
         "info7":
-            "Click the button below to dismiss this dialog. This will automatically subscribe you to the mute list and blacklist of the null account.",
+            "Click the button below to dismiss this dialog. This will automatically subscribe you to the mute list and blacklist of the hive.blog account.",
         "first": "First",
         "previous": "Previous",
         "next": "Next",
-        "last": "Last"
+        "last": "Last",
+        "users_on_list": "Users On List: %(user_count)s"
     }
 }
