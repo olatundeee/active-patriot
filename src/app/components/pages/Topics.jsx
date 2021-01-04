@@ -5,6 +5,8 @@ import { browserHistory } from 'react-router';
 import tt from 'counterpart';
 import PropTypes from 'prop-types';
 import NativeSelect from 'app/components/elements/NativeSelect';
+import { fromJS } from 'immutable';
+import ActivePatriotTopics from '../../utils/ActivePatriotTopics';
 
 class Topics extends Component {
     static propTypes = {
@@ -19,14 +21,18 @@ class Topics extends Component {
     };
 
     render() {
-        const {
+        let {
             current,
+            topics,
             compact,
             username,
-            topics,
             subscriptions,
             communities,
         } = this.props;
+
+        console.log(subscriptions);
+
+        topics = fromJS(ActivePatriotTopics);
 
         if (compact) {
             const opt = (tag, label = null) => {
@@ -35,9 +41,9 @@ class Topics extends Component {
                         value: `/@${username}/feed`,
                         label: 'My friends' || `tt('g.my_feed')`,
                     };
-                if (tag === 'my')
-                    return { value: `/trending/my`, label: 'My communities' };
-                if (tag == 'explore')
+                /*if (tag === 'my')
+                    return { value: `/trending/my`, label: 'My communities' };*/
+                if (tag == 'explore' || tag === 'my')
                     return {
                         value: `/communities`,
                         label: 'Explore Communities...',
@@ -53,7 +59,7 @@ class Topics extends Component {
             const options = [];
             // Add 'All Posts' link.
             options.push(opt(null));
-            if (username && subscriptions) {
+            /*if (username && subscriptions) {
                 // Add 'My Friends' Link
                 options.push(opt('@' + username));
                 // Add 'My Communities' Link
@@ -67,18 +73,14 @@ class Topics extends Component {
                     disabled: true,
                 });
                 options.push(...subscriptionOptions);
-            }
-            if (topics) {
-                const topicsOptions = topics
-                    .toJS()
-                    .map(cat => opt(cat[0], cat[1]));
-                options.push({
-                    value: 'Topics',
-                    label: 'Trending Communities',
-                    disabled: true,
-                });
-                options.push(...topicsOptions);
-            }
+            }*/
+            const topicsOptions = topics.toJS().map(cat => opt(cat[0], cat[1]));
+            options.push({
+                value: 'Topics',
+                label: 'Trending Communities',
+                disabled: true,
+            });
+            options.push(...topicsOptions);
 
             options.push(opt('explore'));
             const currOpt = opt(current);
@@ -122,7 +124,7 @@ class Topics extends Component {
         const list = (
             <ul className="c-sidebar__list">
                 <li>{link('/', tt('g.all_tags'))}</li>
-                {username && (
+                {/*{username && (
                     <li>{link(`/@${username}/feed`, 'My friends')}</li>
                 )}
                 {username && <li>{link(`/trending/my`, 'My communities')}</li>}
@@ -135,8 +137,8 @@ class Topics extends Component {
                             <li key={cat[0]}>
                                 {link(`/trending/${cat[0]}`, cat[1], '')}
                             </li>
-                        ))}
-                {(!username || !subscriptions) &&
+                        ))}*/}
+                {topics &&
                     topics
                         .toJS()
                         .map(cat => (

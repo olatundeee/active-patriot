@@ -265,7 +265,7 @@ class Header extends React.Component {
             </Link>
 
         const submit_story = $STM_Config.read_only_mode ? null : (
-            <Link to="/submit.html">
+            <Link to="/submit.html?category=hive-103550">
                 <IconButton />
             </Link>
         );
@@ -348,7 +348,7 @@ class Header extends React.Component {
                             <div className="large-5 columns show-for-large large-centered Header__sort">
                                 <ul className="nav__block-list">
                                     <li className={`nav__block-list-item`}>
-                                        <Link to={'/'}>Posts</Link>
+                                        <Link to={'/trending/hive-103550'}>Posts</Link>
                                     </li>
                                     <li className={`nav__block-list-item`}>
                                         <Link

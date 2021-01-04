@@ -199,10 +199,20 @@ async function loadPosts(sort, tag, observer) {
     console.log('loadPosts');
     const account = tag && tag[0] == '@' ? tag.slice(1) : null;
 
-    let posts;
+    let posts = [];
     if (account) {
         const params = { sort, account, observer };
-        posts = await callBridge('get_account_posts', params);
+        let postsInit = await callBridge('get_account_posts', params);
+
+        await postsInit.forEach(post => {
+            if (post.community_title) {
+                const checkStandUpX = post.community_title.includes('Active Patriot')
+
+                if (checkStandUpX) {
+                    posts.push(post)
+                }
+            }
+        })
     } else {
         const params = { sort, tag, observer };
         posts = await callBridge('get_ranked_posts', params);
@@ -231,6 +241,8 @@ async function loadPosts(sort, tag, observer) {
     discussion_idx[tag] = {};
     discussion_idx[tag][sort] = keys;
 
+    console.log(content)
+
     return { content, discussion_idx };
 }
 
@@ -244,7 +256,7 @@ function parsePath(url) {
         url = url.substring(0, url.length - 1);
 
     // blank URL defaults to `trending`
-    if (url === '') url = 'trending';
+    if (url === '') url = 'trending/hive-103550';
 
     const part = url.split('/');
     const parts = part.length;
@@ -285,7 +297,7 @@ function parsePath(url) {
         key = [part[1], part[2]];
     } else if (parts == 1 && part[0][0] == '@') {
         page = 'account';
-        sort = 'blog';
+        sort = 'posts';
         tag = part[0];
     } else if (parts == 2 && part[0][0] == '@') {
         if (acct_tabs.includes(part[1])) {

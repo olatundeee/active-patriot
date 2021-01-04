@@ -171,7 +171,23 @@ app.use(function*(next) {
     if (this.method === 'GET' && this.url === '/' && this.session.a) {
         this.status = 302;
         //this.redirect(`/@${this.session.a}/feed`);
-        this.redirect(`/trending/my`);
+        this.redirect(`/trending/hive-103550`);
+        return;
+    }
+
+    // redirect to home page/feed if known account
+    if (this.method === 'GET' && this.url === '/' && !this.session.a) {
+        this.status = 302;
+        //this.redirect(`/@${this.session.a}/feed`);
+        this.redirect(`/trending/hive-103550`);
+        return;
+    }
+
+    // redirect to home page/feed if known account fro /trending/my
+    if (this.method === 'GET' && this.url === '/trending/my') {
+        this.status = 302;
+        //this.redirect(`/@${this.session.a}/feed`);
+        this.redirect(`/trending/hive-103550`);
         return;
     }
 
