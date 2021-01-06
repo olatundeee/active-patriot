@@ -8,8 +8,8 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': {
                 BROWSER: JSON.stringify(true),
-                NODE_ENV: JSON.stringify('production'),
-                VERSION: JSON.stringify(git.long())
+                NODE_ENV: JSON.stringify('production')//,
+                //VERSION: JSON.stringify(git.long())
             }
         }),
         /*
