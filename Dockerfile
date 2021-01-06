@@ -4,7 +4,7 @@ WORKDIR /var/app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --non-interactive --frozen-lockfile --ignore-optional
+RUN yarn install
 
 COPY . .
 
@@ -15,7 +15,7 @@ CMD [ "yarn", "run", "start" ]
 ### REMOVE DEV DEPENDENCIES ##
 FROM development as dependencies
 
-RUN yarn install --non-interactive --frozen-lockfile --ignore-optional --production
+RUN yarn install --production
 
 ### BUILD MINIFIED PRODUCTION ##
 FROM node:12.16.2-alpine as production
