@@ -190,7 +190,7 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.19.0",
     "file-loader": "6.2.0",
-    "foundation-sites": "git+https://github.com/olatundeee/foundation-sites",
+    "foundation-sites": "git+https://github.com/olatundeee/foundation-sites.git",
     "git-rev-sync": "1.9.1",
     "husky": "0.14.3",
     "imports-loader": "1.2.0",
