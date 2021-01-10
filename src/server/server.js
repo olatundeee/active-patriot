@@ -88,7 +88,7 @@ app.use(
 if (env === 'development') {
     const webpack_dev_port = process.env.PORT
         ? parseInt(process.env.PORT) + 1
-        : 80;
+        : 8001;
     const proxyhost = 'http://0.0.0.0:' + webpack_dev_port;
     console.log('proxying to webpack dev server at ' + proxyhost);
     const proxy = require('koa-proxy')({
@@ -348,7 +348,7 @@ if (env !== 'test') {
 
     const argv = minimist(process.argv.slice(2));
 
-    const port = process.env.PORT ? parseInt(process.env.PORT) : 80;
+    const port = process.env.PORT ? parseInt(process.env.PORT) : 8000;
 
     if (env === 'production' && process.env.DISABLE_CLUSTERING !== 'true') {
         if (cluster.isMaster) {
